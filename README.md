@@ -9,6 +9,7 @@ We will be working with a pre-made backend today. It can be found at `https://ga
 |`GET` | `/` | Confirms that the app is working  |
 |`POST`|`/accounts` | Makes you your own account (so that your todos don't get mixed up with your classmates). Save the key that you get in the response!   |
 |`GET`| `/accounts/:key/todos`  | Lists all todos associated with your account |
+|`POST`| `/accounts/:key/todos`  | Creates a new todo using the `"description"` from the request body. `"completed"` gets set to false. |
 |`PUT`| `/accounts/:key/todos/:id`  | Updates the specified todo according to the body of the request   |
 |`PUT`| `/accounts/:key/todos/reset`  | Sets all your todos to `completed: false`  |
 
@@ -34,10 +35,15 @@ Use postman to create an account. The key that you get back will effectively bec
 
 ## Goal 3 (stretch): Marking todos as done
 - give each todo a button
-- onClick, make a put request
-- upgrade: put baseUrl into a constant file
+- onClick, make a PUT request
+- upgrade detour: put baseUrl into a constant file
 - after button is clicked, need to reload todos in top-level component
 - define a function in top level component that handles this, and pass it into TodoList as a prop
 - it should be really similar to the initial load, can we reuse a function here?
 - call the reloadTodos function after the put is finished
 - might want to order by id to avoid shuffling em
+- improvement: use a shouldReloadTodos state in top level
+
+## Goal 4 (stretch): implement stretch from last night's todos HW
+- create a new todo: when the form is submitted, it should POST to the backend, then reload todos
+- sort by done/not done, either in 1 list or 2 lists
