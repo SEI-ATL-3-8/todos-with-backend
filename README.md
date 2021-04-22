@@ -16,21 +16,24 @@ We will be working with a pre-made backend today. It can be found at `https://ga
 Use postman to create an account. The key that you get back will effectively become part of your base url for this project. Note that your account comes pre-seeded with some todos.
 
 ## Goal 1: Load backend data
-- useEffect to load todos into state, peep it in inspector
+- `yarn add axios`
+- write a function loadTodos to load todos into state
+- useEffect with loadTodos, look at our state in inspector
 - put a log into loadTodos, see that it is looping
 - put [] into useEffect to stop the loop
-- display our todos state in our jsx
+- pass our todos state into a TodoList component that displays them
 - use db id as key
-- separate our display loop into its own component, pass todos into it as a prop
 
 ## Goal 2: Filtering our todos
-- get the search bar wired up as a controlled input in App.js
+- create a search bar
+- get the search bar wired up as a controlled input in App.js, look at its piece of state in inspector
 - move the search bar into a separate component
 - need new piece of state for filtered todos, this will get passed into list
-- make a filterTodos function, we will wire it up to the search bar later
-- wire filterTodos up to the search bar
+- make a filterTodos function, we will wire it up to the search bar next
+- wire filterTodos up to the search bar with useEffect
+- this useEffect must depend on the searchTerm
 - note that the filteredTodos state changes in inspector
-- pass filteredTodos into TodoList instead of Todos
+- pass filteredTodos (instead of todos) into TodoList
 - setFilteredTodos to all todos on load
 
 ## Goal 3 (stretch): Marking todos as done
@@ -41,7 +44,7 @@ Use postman to create an account. The key that you get back will effectively bec
 - define a function in top level component that handles this, and pass it into TodoList as a prop
 - it should be really similar to the initial load, can we reuse a function here?
 - call the reloadTodos function after the put is finished
-- might want to order by id to avoid shuffling em
+- might want to order by id to avoid shuffling the todos
 - improvement: use a shouldReloadTodos state in top level
 
 ## Goal 4 (stretch): implement stretch from last night's todos HW
